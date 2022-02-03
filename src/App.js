@@ -47,17 +47,29 @@ function App() {
             {data.map((offer, index) => {
               console.log(offer);
               return (
-                <Link to="offer/:{offer._id}" offer={offer}>
-                  <div className="offer-card" key={index}>
-                    <p>{offer.owner.account.username}</p>
-                    <div>
-                      <img src={offer.product_image} alt={offer.product_name} />
+                <div>
+                  <Link to="offer/:{offer._id}" offer={offer}>
+                    <div className="offer-card" key={index}>
+                      <p>{offer.owner.account.username}</p>
+                      <div>
+                        <img
+                          src={offer.product_image}
+                          alt={offer.product_name}
+                        />
+                      </div>
+                      <p>{offer.product_price}</p>
+                      <p>{offer.product_details[1].TAILLE}</p>
+                      <p>{offer.product_details[0].MARQUE}</p>
                     </div>
-                    <p>{offer.product_price}</p>
-                    <p>{offer.product_details[1].TAILLE}</p>
-                    <p>{offer.product_details[0].MARQUE}</p>
-                  </div>
-                </Link>
+                  </Link>
+                  <Routes>
+                    <Route
+                      path="/offer/:{offer._id}"
+                      offer={offer}
+                      element={<Offer offer={offer} />}
+                    ></Route>
+                  </Routes>
+                </div>
               );
             })}
           </div>
