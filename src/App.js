@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -45,19 +45,19 @@ function App() {
         ) : (
           <div>
             {data.map((offer, index) => {
+              console.log(offer);
               return (
-                <div className="offer-card" key={index}>
-                  <p>{offer.owner.account.username}</p>
-                  <div>
-                    <img
-                      src="{offer.product_image}"
-                      alt="{offer.product_name}"
-                    />
+                <Link to="offer/:{offer._id}" offer={offer}>
+                  <div className="offer-card" key={index}>
+                    <p>{offer.owner.account.username}</p>
+                    <div>
+                      <img src={offer.product_image} alt={offer.product_name} />
+                    </div>
+                    <p>{offer.product_price}</p>
+                    <p>{offer.product_details[1].TAILLE}</p>
+                    <p>{offer.product_details[0].MARQUE}</p>
                   </div>
-                  <p>{offer.product_price}</p>
-                  <p>{offer.product_details.TAILLE}</p>
-                  <p>{offer.product_details.MARQUE}</p>
-                </div>
+                </Link>
               );
             })}
           </div>
