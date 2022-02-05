@@ -12,15 +12,9 @@ function App() {
         <Header />
         <div className="hero-banner">Hero banner</div>
 
-        {/* <Link to="/"></Link> */}
-
         <nav>
           <Link to="/">Home </Link>
         </nav>
-        {/* <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="/offer" element={<Offer />} />
-        </Routes> */}
 
         <Routes>
           <Route path="/" element={<Home />}></Route>
