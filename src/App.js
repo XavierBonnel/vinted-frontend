@@ -15,8 +15,7 @@ function App() {
         {/* <Link to="/"></Link> */}
 
         <nav>
-          <Link to="/home">Home </Link>
-          <Link to="/offer">Offer</Link>
+          <Link to="/">Home </Link>
         </nav>
         {/* <Routes>
           <Route path="/home" element={<Home />} />

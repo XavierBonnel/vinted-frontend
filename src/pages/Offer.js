@@ -9,16 +9,12 @@ function Offer() {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
-  console.log("coucou");
-
   useEffect(() => {
     const fetchData = async () => {
-      console.log("coucou2");
-      const response = await axios(
-        `https://my--vinted-backend.herokuapp.com/offers/${id}`
+      const response = await axios.get(
+        `https://my--vinted-backend.herokuapp.com/offer?id=${id}`
       );
       //comment récupérer les caractéristique de l'offre désignée par l'id ?
-      console.log("coucou3");
       setData(response.data);
       setIsLoading(false);
     };
@@ -28,14 +24,14 @@ function Offer() {
   return isLoading ? (
     <p>Loading...</p>
   ) : (
-    <div>
+    <div className="individual-offer">
       <h1>{data.product_name}</h1>
       <div>
         <img src={data.product_image} alt={data.product_name} />
       </div>
       <p>{data.product_price}</p>
       <p>{data.product_details[1].TAILLE}</p>
-      <p>data.product_details[0].MARQUE}</p>
+      <p>{data.product_details[0].MARQUE}</p>
     </div>
   );
 }
