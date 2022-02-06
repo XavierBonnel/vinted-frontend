@@ -1,18 +1,67 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
+import axios from "axios";
 
 import Signup from "../pages/Signup";
 
 function Login() {
-  const handleClick = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.post(
+        "https://my--vinted-backend.herokuapp.com/user/login"
+      );
+      setData(response.data);
+      setIsLoading(false);
+    };
+
+    fetchData();
+  }, []);
+
+  const handleEmailChange = (event) => {
+    const value = event.target.value;
+    setEmail(value);
+  };
+
+  const handlePasswordChange = (event) => {
+    const value = event.target.value;
+    setPassword(value);
+  };
+
+  const handleSubmit = async (event) => {
     alert("submitted");
+    event.preventDefault();
+    const response = await axios.post(
+      "https://my--vinted-backend.herokuapp.com/user/login"
+    );
+    setEmail(req.fields.email);
+    setPassword(req.fields.password);
   };
   return (
     <div>
-      <h1>login</h1>
-      <input type="text" placeholder="username" />
-      <input type="password" placeholder="password" />
-      <button onClick={handleClick}>se connecter</button>
+      {" "}
+      IsLoading ? <p>Loading...</p> :
+      <div>
+        <h1>login</h1>
+        <input
+          type="email"
+          placeholder="email"
+          value={email}
+          onChange={handleEmailChange}
+        />
+        <input
+          type="password"
+          placeholder="password"
+          value={password}
+          onChange={handlePasswordChange}
+        />
+        <input type="submit" onClick={handleSubmit}>
+          se connecter
+        </input>
+      </div>
       <Link to="/signup" element={<Signup />}>
         pas encore de compte ?
       </Link>

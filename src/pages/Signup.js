@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useState, UseEffect } from "react";
 import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
+import axios from "axios";
 
 import Login from "../pages/Login";
 
 function Signup() {
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.post(
+        "https://my--vinted-backend.herokuapp.com/user/signup"
+      );
+      setData(response.data);
+      setIsLoading(false);
+    };
+
+    fetchData();
+  }, []);
+
   const handleClick = () => {
     alert("submitted");
   };
+
   return (
     <div>
       <h1>signup</h1>

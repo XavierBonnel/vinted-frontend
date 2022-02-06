@@ -10,7 +10,6 @@ function App() {
     <div className="App">
       <Router>
         <Header />
-        <div className="hero-banner">Hero banner</div>
 
         <nav>
           <Link to="/">Home </Link>

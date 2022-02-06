@@ -21,6 +21,7 @@ function Home() {
 
   return (
     <div>
+      <div className="hero-banner">Hero banner</div>
       {isLoading ? (
         <p>Loading...</p>
       ) : (
