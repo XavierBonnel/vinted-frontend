@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 function Signup() {
   const [email, setEmail] = useState("");
@@ -38,6 +39,8 @@ function Signup() {
       );
       console.log(response.data);
       setData(response.data);
+      const token = response.data.token;
+      Cookies.set("token", token, { expires: 7 });
     } catch (error) {
       console.log(error.response);
     }
