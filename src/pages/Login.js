@@ -8,12 +8,14 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.post(
         "https://my--vinted-backend.herokuapp.com/user/login"
       );
+      //https://my--vinted-backend.herokuapp.com/
       setData(response.data);
       setIsLoading(false);
     };
@@ -36,13 +38,15 @@ function Login() {
     event.preventDefault();
     const response = await axios.post(
       "https://my--vinted-backend.herokuapp.com/user/login"
+      // ,
+      // {
+      //   email: email,
+      //   password: password,
+      // }
     );
-    setEmail(req.fields.email);
-    setPassword(req.fields.password);
   };
   return (
     <div>
-      {" "}
       IsLoading ? <p>Loading...</p> :
       <div>
         <h1>login</h1>
