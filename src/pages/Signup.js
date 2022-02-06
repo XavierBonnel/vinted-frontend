@@ -34,10 +34,10 @@ function Signup() {
           username: username,
           email: email,
           password: password,
-        },
-        setData(response.data)
+        }
       );
       console.log(response.data);
+      setData(response.data);
     } catch (error) {
       console.log(error.response);
     }
