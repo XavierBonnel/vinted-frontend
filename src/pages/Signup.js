@@ -1,47 +1,81 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
-import Login from "../pages/Login";
-
 function Signup() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
   const [data, setData] = useState();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.post(
-        "https://my--vinted-backend.herokuapp.com/user/signup"
-      );
-      setData(response.data);
-      setIsLoading(false);
-    };
+  const handleEmailChange = (event) => {
+    const value = event.target.value;
+    setEmail(value);
+  };
 
-    fetchData();
-  }, []);
+  const handleUsernameChange = (event) => {
+    const value = event.target.value;
+    setUsername(value);
+  };
 
-  const handleClick = () => {
+  const handlePasswordChange = (event) => {
+    const value = event.target.value;
+    setPassword(value);
+  };
+
+  const handleSubmit = async (event) => {
     alert("submitted");
+    event.preventDefault();
+    console.log("coucou");
+    try {
+      const response = await axios.post(
+        "https://my--vinted-backend.herokuapp.com/user/signup",
+        {
+          username: username,
+          email: email,
+          password: password,
+        },
+        setData(response.data)
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.log(error.response);
+    }
+    //ne pas oublier try catch pour chaque requete axios
   };
 
   return (
     <div>
       <h1>signup</h1>
-      <input type="text" placeholder="username" />
-      <input type="email" placeholder="email" />
-      <input type="password" placeholder="password" />
-      <input
-        type="checkbox"
-        id="newsletter"
-        name="newsletter"
-        value="newsletter"
-      />
-      <label for="newsletter">intéressé par la newsletter ?</label>
-      <button onClick={handleClick}>s'inscrire</button>
+      <div>
+        <input
+          type="text"
+          placeholder="username"
+          value={username}
+          onChange={handleUsernameChange}
+        />
+        <input
+          type="email"
+          placeholder="email"
+          value={email}
+          onChange={handleEmailChange}
+        />
+        <input
+          type="password"
+          placeholder="password"
+          value={password}
+          onChange={handlePasswordChange}
+        />
+        {/* <input
+          type="checkbox"
+          id="newsletter"
+          name="newsletter"
+          value="newsletter"
+        />
+        <label>intéressé par la newsletter ?</label>*/}
+        <button onClick={handleSubmit}>s'inscrire</button>
+      </div>
       <Link to="/login">déjà un compte ?</Link>
-      <Routes>
-        <Route path="/login" element={<Login />}></Route>
-      </Routes>
     </div>
   );
 }

@@ -1,27 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
-
-import Signup from "../pages/Signup";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.post(
-        "https://my--vinted-backend.herokuapp.com/user/login"
-      );
-      //https://my--vinted-backend.herokuapp.com/
-      setData(response.data);
-      setIsLoading(false);
-    };
-
-    fetchData();
-  }, []);
 
   const handleEmailChange = (event) => {
     const value = event.target.value;
@@ -32,22 +16,28 @@ function Login() {
     const value = event.target.value;
     setPassword(value);
   };
-
+  //use Effect  donc isLoading
   const handleSubmit = async (event) => {
     alert("submitted");
     event.preventDefault();
-    const response = await axios.post(
-      "https://my--vinted-backend.herokuapp.com/user/login"
-      // ,
-      // {
-      //   email: email,
-      //   password: password,
-      // }
-    );
+    //try catch
+    try {
+      const response = await axios.post(
+        "https://my--vinted-backend.herokuapp.com/user/login",
+        {
+          email: email,
+          password: password,
+        },
+        setData(response.data)
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.log(error.response);
+    }
+    //ne pas oublier try catch pour chaque requete axios
   };
   return (
     <div>
-      IsLoading ? <p>Loading...</p> :
       <div>
         <h1>login</h1>
         <input
@@ -62,14 +52,9 @@ function Login() {
           value={password}
           onChange={handlePasswordChange}
         />
-        <input type="submit" onClick={handleSubmit}>
-          se connecter
-        </input>
+        <button onClick={handleSubmit}>se connecter</button>
       </div>
       <Link to="/signup">pas encore de compte ?</Link>
-      <Routes>
-        <Route path="/signup" element={<Signup />}></Route>
-      </Routes>
     </div>
   );
 }

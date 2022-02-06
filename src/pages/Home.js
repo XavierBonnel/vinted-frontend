@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Home() {
   const [data, setData] = useState([]);
