@@ -66,9 +66,7 @@ function Login() {
           se connecter
         </input>
       </div>
-      <Link to="/signup" element={<Signup />}>
-        pas encore de compte ?
-      </Link>
+      <Link to="/signup">pas encore de compte ?</Link>
       <Routes>
         <Route path="/signup" element={<Signup />}></Route>
       </Routes>

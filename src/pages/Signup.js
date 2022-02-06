@@ -1,10 +1,13 @@
-import React, { useState, UseEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
 import axios from "axios";
 
 import Login from "../pages/Login";
 
 function Signup() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState();
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.post(
@@ -35,9 +38,7 @@ function Signup() {
       />
       <label for="newsletter">intéressé par la newsletter ?</label>
       <button onClick={handleClick}>s'inscrire</button>
-      <Link to="/login" element={<Login />}>
-        déjà un compte ?
-      </Link>
+      <Link to="/login">déjà un compte ?</Link>
       <Routes>
         <Route path="/login" element={<Login />}></Route>
       </Routes>
