@@ -13,10 +13,6 @@ function App() {
       <Router>
         <Header />
 
-        <nav>
-          <Link to="/">Home </Link>
-        </nav>
-
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/offer/:id" element={<Offer />}></Route>

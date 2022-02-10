@@ -1,16 +1,137 @@
-.hero-banner {
-  background-color: gray;
-  height: 300px;
+@import url("http://fonts.cdnfonts.com/css/maison-neue");
+
+.App {
+  font-family: "Maison Neue", sans-serif;
 }
 
-.offer-card {
+.header {
+  display: flex;
+  height: 120px;
+  justify-content: center;
+  align-items: center;
   img {
-    height: 200px;
+    display: flex;
+    height: 40px;
+  }
+  .header-right {
+    display: flex;
+    justify-content: space-evenly;
+    button {
+      height: 30px;
+      background-color: white;
+      border: 1px solid #2cb1ba;
+      color: #2cb1ba;
+      border-radius: 2px;
+      margin-right: 24px;
+      padding: 0 8px 0 8px;
+      display: flex;
+      align-items: center;
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+    button:last-child {
+      margin-right: 0;
+      height: 30px;
+      background-color: #2cb1ba;
+      border: none;
+      color: white;
+      border-radius: 2px;
+    }
+  }
+
+  .header-left {
+    display: flex;
+    margin-right: 800px;
+  }
+}
+
+.hero-banner {
+  display: flex;
+  background-color: gray;
+  height: 359px;
+  width: 100vw;
+  img {
+    display: flex;
+    object-fit: cover;
+    width: 100vw;
+    object-position: 0 -150px;
+  }
+}
+
+.offers-list {
+  display: flex;
+  width: 100vw;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .offer-card {
+    display: flex;
+    // background-color: pink;
+    width: 240px;
+    height: 465px;
+    flex-direction: column;
+    overflow: hidden;
+    align-items: baseline;
+    margin: 12px 12px 12px 0px;
+
+    .avatar-and-username {
+      display: flex;
+      align-items: center;
+      margin: 4px 0px 4px 8px;
+      .avatar {
+        width: 28px;
+        height: 28px;
+        border-radius: 100%;
+      }
+    }
+
+    img {
+      display: flex;
+      width: 320px;
+      height: 360px;
+      align-self: center;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .price {
+      font-size: 14px;
+      color: black;
+      margin-top: 12px;
+      margin-left: 8px;
+    }
+    .details {
+      margin-top: 8px;
+      margin-left: 8px;
+
+      font-size: 12px;
+      color: #999999;
+    }
   }
 }
 
 .individual-offer {
-  img {
-    height: 200px;
+  display: flex;
+  justify-content: space-around;
+  background-color: #ebedee;
+  height: 100vh;
+
+  .offer-image {
+    display: flex;
+    img {
+      height: 500px;
+    }
+  }
+
+  .right-bloc {
+    display: flex;
+    background-color: white;
+    height: 500px;
   }
 }

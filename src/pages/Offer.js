@@ -25,13 +25,16 @@ function Offer() {
     <p>Loading...</p>
   ) : (
     <div className="individual-offer">
-      <h1>{data.product_name}</h1>
-      <div>
+      <div className="offer-image">
         <img src={data.product_image} alt={data.product_name} />
       </div>
-      <p>{data.product_price}</p>
-      <p>{data.product_details[1].TAILLE}</p>
-      <p>{data.product_details[0].MARQUE}</p>
+      <div className="right-bloc">
+        <h1>{data.product_name}</h1>
+
+        <p>{data.product_price}€</p>
+        <p>{data.product_details[1].TAILLE}</p>
+        <p>{data.product_details[0].MARQUE}</p>
+      </div>
     </div>
   );
 }

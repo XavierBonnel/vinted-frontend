@@ -21,24 +21,35 @@ function Home() {
 
   return (
     <div>
-      <div className="hero-banner">Hero banner</div>
+      <div className="hero-banner">
+        <img src="/hero-vinted.jpg" alt="hero-banner-vinted" />
+      </div>
       {isLoading ? (
         <p>Loading...</p>
       ) : (
-        <div>
+        <div className="offers-list">
           {data.map((offer, index) => {
             console.log(offer);
             return (
               <div>
                 <Link to={"/offer/" + offer._id}>
                   <div className="offer-card" key={index}>
-                    <p>{offer.owner.account.username}</p>
+                    <div className="avatar-and-username">
+                      <img
+                        className="avatar"
+                        src={offer.owner.account.avatar}
+                        alt="avatar image"
+                      />
+                      <span>{offer.owner.account.username}</span>
+                    </div>
                     <div>
                       <img src={offer.product_image} alt={offer.product_name} />
                     </div>
-                    <p>{offer.product_price}</p>
-                    <p>{offer.product_details[1].TAILLE}</p>
-                    <p>{offer.product_details[0].MARQUE}</p>
+                    <p className="price">{offer.product_price} €</p>
+                    <div className="details">
+                      <p>{offer.product_details[1].TAILLE}</p>
+                      <p>{offer.product_details[0].MARQUE}</p>
+                    </div>
                   </div>
                 </Link>
               </div>
