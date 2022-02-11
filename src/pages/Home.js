@@ -38,7 +38,7 @@ function Home() {
                       <img
                         className="avatar"
                         src={offer.owner.account.avatar}
-                        alt="avatar image"
+                        alt="avatar-image"
                       />
                       <span>{offer.owner.account.username}</span>
                     </div>
@@ -56,7 +56,7 @@ function Home() {
             );
           })}
         </div>
-      )}{" "}
+      )}
     </div>
   );
 }

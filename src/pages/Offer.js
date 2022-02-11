@@ -29,11 +29,17 @@ function Offer() {
         <img src={data.product_image} alt={data.product_name} />
       </div>
       <div className="right-bloc">
+      <p className="price-individual" >{data.product_price}€</p>
         <h1>{data.product_name}</h1>
-
-        <p>{data.product_price}€</p>
         <p>{data.product_details[1].TAILLE}</p>
         <p>{data.product_details[0].MARQUE}</p>
+        <p>{data.product_details[2].ETAT}</p>
+        <p>{data.product_details[3].COULEUR}</p>
+        <p>{data.product_details[4].EMPLACEMENT}</p>
+        <p>{data.product_description}</p>
+
+
+
       </div>
     </div>
   );

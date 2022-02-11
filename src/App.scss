@@ -121,6 +121,7 @@
   justify-content: space-around;
   background-color: #ebedee;
   height: 100vh;
+  padding-top: 100px;
 
   .offer-image {
     display: flex;
@@ -133,5 +134,14 @@
     display: flex;
     background-color: white;
     height: 500px;
+    flex-direction: column;
+    width: 400px;
+    padding: 30px;
+      .price-individual{
+      font-size: 24px;
+      }
+      p, h1{
+      font-size: 13px;
+      }
   }
 }
