@@ -40,23 +40,21 @@ function Login() {
     //ne pas oublier try catch pour chaque requete axios
   };
   return (
-    <div>
-      <div>
-        <h1>login</h1>
-        <input
-          type="email"
-          placeholder="email"
-          value={email}
-          onChange={handleEmailChange}
-        />
-        <input
-          type="password"
-          placeholder="password"
-          value={password}
-          onChange={handlePasswordChange}
-        />
-        <button onClick={handleSubmit}>se connecter</button>
-      </div>
+    <div className="login-bloc">
+      <h1>Se connecter</h1>
+      <input
+        type="email"
+        placeholder="email"
+        value={email}
+        onChange={handleEmailChange}
+      />
+      <input
+        type="password"
+        placeholder="password"
+        value={password}
+        onChange={handlePasswordChange}
+      />
+      <button onClick={handleSubmit}>se connecter</button>
       <Link to="/signup">pas encore de compte ?</Link>
     </div>
   );

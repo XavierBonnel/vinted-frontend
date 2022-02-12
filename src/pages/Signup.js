@@ -48,36 +48,36 @@ function Signup() {
   };
 
   return (
-    <div>
-      <h1>signup</h1>
-      <div>
-        <input
-          type="text"
-          placeholder="username"
-          value={username}
-          onChange={handleUsernameChange}
-        />
-        <input
-          type="email"
-          placeholder="email"
-          value={email}
-          onChange={handleEmailChange}
-        />
-        <input
-          type="password"
-          placeholder="password"
-          value={password}
-          onChange={handlePasswordChange}
-        />
-        {/* <input
+    <div className="signup-bloc">
+      <h1>S'inscrire</h1>
+
+      <input
+        type="text"
+        placeholder="username"
+        value={username}
+        onChange={handleUsernameChange}
+      />
+      <input
+        type="email"
+        placeholder="email"
+        value={email}
+        onChange={handleEmailChange}
+      />
+      <input
+        type="password"
+        placeholder="password"
+        value={password}
+        onChange={handlePasswordChange}
+      />
+      {/* <input
           type="checkbox"
           id="newsletter"
           name="newsletter"
           value="newsletter"
         />
         <label>intéressé par la newsletter ?</label>*/}
-        <button onClick={handleSubmit}>s'inscrire</button>
-      </div>
+      <button onClick={handleSubmit}>s'inscrire</button>
+
       <Link to="/login">déjà un compte ?</Link>
     </div>
   );
