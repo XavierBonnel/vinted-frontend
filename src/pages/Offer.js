@@ -5,7 +5,6 @@ import axios from "axios";
 //ici faire isloading params recup offre et faire state
 function Offer() {
   const { id } = useParams();
-  console.log({ id });
   const [data, setData] = useState();
   const [seller, setSeller] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -21,6 +20,7 @@ function Offer() {
         "https://my--vinted-backend.herokuapp.com/offers"
       );
       //comment récupérer les caractéristique de l'offre désignée par l'id ?
+
       setSeller(sellerList.data);
       setData(response.data);
       setIsLoading(false);
@@ -28,21 +28,32 @@ function Offer() {
     fetchData();
   }, []);
 
-  // for (let i = 0; i < seller.length; i++) {
-  //   console.log("dans for");
-  //   // est-ce que input est présent dans keywords
-  //   if (seller[i].owner._id.includes(data.owner)) {
-  //     setSellerDetails.push(
-  //       seller[i].owner.account.username,
-  //       seller[i].owner.account.avatar
-  //     );
-  //   }
-  // }
+  const research = () => {
+    for (let i = 0; i < seller.length; i++) {
+      console.log("dans for");
+      // est-ce que input est présent dans keywords
+      if (seller[i].owner._id.includes(data.owner)) {
+        const owner = [
+          seller[i].owner.account.username,
+          seller[i].owner.account.avatar,
+        ];
+        return (
+          <div className="owner">
+            <span className="avatar-individual">
+              <img src={owner[1]} alt="avatar image" />
+            </span>
+            <p>{owner[0]}</p>
+          </div>
+        );
+      }
+    }
+  };
 
   return isLoading ? (
     <p>Loading...</p>
   ) : (
     <div className="individual-offer">
+      {/* {console.log(sellerDetails)} */}
       <div className="offer-image">
         <img src={data.product_image} alt={data.product_name} />
       </div>
@@ -69,9 +80,10 @@ function Offer() {
         </div>
         <h1>{data.product_name}</h1>
 
-        <p>{data.product_description}</p>
+        <p className="description">{data.product_description}</p>
         {/* {data.owner === seller.owner._id.map()} */}
-        <span>{data.owner}</span>
+        <p>{research()}</p>
+
         {/* <div className="avatar-and-username">
           <img
             className="avatar"

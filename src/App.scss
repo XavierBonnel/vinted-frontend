@@ -159,6 +159,9 @@
         margin-left: 22px;
       }
     }
+    .description {
+      color: #666666;
+    }
   }
   hr {
     border-color: #efefef;
@@ -168,6 +171,18 @@
     font-weight: 600;
     margin-bottom: 16px;
   }
+}
+
+.owner {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+}
+.avatar-individual img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  margin-right: 8px;
 }
 
 .signup-bloc,
