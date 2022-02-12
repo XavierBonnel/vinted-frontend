@@ -137,11 +137,35 @@
     flex-direction: column;
     width: 400px;
     padding: 30px;
-      .price-individual{
+
+    .price-individual {
       font-size: 24px;
+    }
+    .bloc-list {
+      margin-top: 12px;
+    }
+    .details-list {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      .detail-titles-individual {
+        color: #999999;
+        font-size: 14px;
+        margin-top: 4px;
       }
-      p, h1{
-      font-size: 13px;
+      .detail-individual {
+        color: #666666;
+        font-size: 14px;
+        margin-top: 4px;
+        margin-left: 22px;
       }
+    }
+  }
+  hr {
+    border-color: #efefef;
+    margin: 22px 0 22px 0;
+  }
+  h1 {
+    font-weight: 600;
+    margin-bottom: 16px;
   }
 }
