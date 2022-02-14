@@ -47,6 +47,7 @@ function Home() {
                     </div>
                     <p className="price">{offer.product_price} €</p>
                     <div className="details">
+                      {/* faire une ternaire pour cacher les taille et marque quand vide */}
                       <p>{offer.product_details[1].TAILLE}</p>
                       <p>{offer.product_details[0].MARQUE}</p>
                     </div>

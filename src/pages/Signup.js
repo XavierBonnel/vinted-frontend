@@ -69,13 +69,7 @@ function Signup() {
         value={password}
         onChange={handlePasswordChange}
       />
-      {/* <input
-          type="checkbox"
-          id="newsletter"
-          name="newsletter"
-          value="newsletter"
-        />
-        <label>intéressé par la newsletter ?</label>*/}
+
       <button onClick={handleSubmit}>s'inscrire</button>
 
       <Link to="/login">déjà un compte ?</Link>

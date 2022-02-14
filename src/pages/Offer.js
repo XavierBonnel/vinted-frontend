@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-//ici faire isloading params recup offre et faire state
 function Offer() {
   const { id } = useParams();
   const [data, setData] = useState();
@@ -19,7 +18,6 @@ function Offer() {
       const sellerList = await axios.get(
         "https://my--vinted-backend.herokuapp.com/offers"
       );
-      //comment récupérer les caractéristique de l'offre désignée par l'id ?
 
       setSeller(sellerList.data);
       setData(response.data);
@@ -31,7 +29,6 @@ function Offer() {
   const research = () => {
     for (let i = 0; i < seller.length; i++) {
       console.log("dans for");
-      // est-ce que input est présent dans keywords
       if (seller[i].owner._id.includes(data.owner)) {
         const owner = [
           seller[i].owner.account.username,
@@ -53,7 +50,6 @@ function Offer() {
     <p>Loading...</p>
   ) : (
     <div className="individual-offer">
-      {/* {console.log(sellerDetails)} */}
       <div className="offer-image">
         <img src={data.product_image} alt={data.product_name} />
       </div>
@@ -81,17 +77,7 @@ function Offer() {
         <h1>{data.product_name}</h1>
 
         <p className="description">{data.product_description}</p>
-        {/* {data.owner === seller.owner._id.map()} */}
         <p>{research()}</p>
-
-        {/* <div className="avatar-and-username">
-          <img
-            className="avatar"
-            src={data.owner.account.avatar}
-            alt="avatar-image"
-          />
-          <span>{data.owner.account.username}</span>
-        </div> */}
       </div>
     </div>
   );

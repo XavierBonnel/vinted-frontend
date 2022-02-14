@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-function Login() {
+function Login({ logged, setLogged }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [data, setData] = useState();
+  const navigate = useNavigate();
 
   const handleEmailChange = (event) => {
     const value = event.target.value;
@@ -19,7 +20,6 @@ function Login() {
   };
   //use Effect  donc isLoading
   const handleSubmit = async (event) => {
-    alert("submitted");
     event.preventDefault();
     //try catch
     try {
@@ -34,6 +34,8 @@ function Login() {
       setData(response.data);
       const token = response.data.token;
       Cookies.set("token", token, { expires: 7 });
+      navigate("/");
+      setLogged(true);
     } catch (error) {
       console.log(error.response);
     }
