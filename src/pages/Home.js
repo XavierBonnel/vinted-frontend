@@ -2,10 +2,20 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
 
-function Home() {
+function Home({ logged, setLogged }) {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const cookieLogged = () => {
+    let cookie = Cookies.get("token");
+    if ((cookie = true)) {
+      setLogged(true);
+    } else {
+      setLogged(false);
+    }
+  };
 
   useEffect(() => {
     const fetchdata = async () => {
@@ -17,7 +27,7 @@ function Home() {
     };
 
     fetchdata();
-  }, []);
+  }, [cookieLogged]);
 
   return (
     <div>

@@ -17,7 +17,10 @@ function App() {
         <Header setLogged={setLogged} logged={logged} />
 
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route
+            path="/"
+            element={<Home logged={logged} setLogged={setLogged} />}
+          ></Route>
           <Route path="/offer/:id" element={<Offer />}></Route>
           <Route
             path="/signup"
