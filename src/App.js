@@ -8,6 +8,7 @@ import Offer from "./pages/Offer";
 import Header from "./components/Header";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import Publish from "./pages/Publish";
 
 function App() {
   const [logged, setLogged] = useState(false);
@@ -51,6 +52,7 @@ function App() {
               />
             }
           ></Route>
+          <Route path="/publish" element={<Publish token={token} />}></Route>
         </Routes>
       </Router>
     </div>

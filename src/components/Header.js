@@ -29,7 +29,13 @@ function Header({ logged, setLogged, token, setToken }) {
           </>
         )}
 
-        <button>vends tes articles</button>
+        <button>
+          {token ? (
+            <Link to="/publish">vends tes articles</Link>
+          ) : (
+            <Link to="/login">vends tes articles</Link>
+          )}
+        </button>
       </div>
     </div>
   );
