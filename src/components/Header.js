@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 
-function Header({ logged, setLogged }) {
+function Header({ logged, setLogged, token, setToken }) {
   const disconnect = (event) => {
     Cookies.remove("token");
-    setLogged(false);
+    setToken(null);
   };
 
   return (
@@ -16,7 +16,7 @@ function Header({ logged, setLogged }) {
         </Link>
       </div>
       <div className="header-right">
-        {logged === true ? (
+        {token ? (
           <button onClick={disconnect}>Se déconnecter</button>
         ) : (
           <>

@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-function Signup() {
+function Signup({ setToken, token }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [data, setData] = useState();
+  const navigate = useNavigate();
 
   const handleEmailChange = (event) => {
     const value = event.target.value;
@@ -25,9 +26,7 @@ function Signup() {
   };
 
   const handleSubmit = async (event) => {
-    alert("submitted");
     event.preventDefault();
-    console.log("coucou");
     try {
       const response = await axios.post(
         "https://my--vinted-backend.herokuapp.com/user/signup",
@@ -37,10 +36,11 @@ function Signup() {
           password: password,
         }
       );
-      console.log(response.data);
       setData(response.data);
       const token = response.data.token;
       Cookies.set("token", token, { expires: 7 });
+      setToken(token);
+      navigate("/");
     } catch (error) {
       console.log(error.response);
     }

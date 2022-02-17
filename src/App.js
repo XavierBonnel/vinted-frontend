@@ -1,6 +1,7 @@
 import "./App.scss";
 import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
 import { useState } from "react";
+import Cookies from "js-cookie";
 
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
@@ -10,11 +11,17 @@ import Login from "./pages/Login";
 
 function App() {
   const [logged, setLogged] = useState(false);
+  const [token, setToken] = useState(Cookies.get("token") || null);
 
   return (
     <div className="App">
       <Router>
-        <Header setLogged={setLogged} logged={logged} />
+        <Header
+          setLogged={setLogged}
+          logged={logged}
+          token={token}
+          setToken={setToken}
+        />
 
         <Routes>
           <Route
@@ -24,11 +31,25 @@ function App() {
           <Route path="/offer/:id" element={<Offer />}></Route>
           <Route
             path="/signup"
-            element={<Signup setLogged={setLogged} logged={logged} />}
+            element={
+              <Signup
+                setLogged={setLogged}
+                logged={logged}
+                token={token}
+                setToken={setToken}
+              />
+            }
           ></Route>
           <Route
             path="/login"
-            element={<Login setLogged={setLogged} logged={logged} />}
+            element={
+              <Login
+                setLogged={setLogged}
+                logged={logged}
+                token={token}
+                setToken={setToken}
+              />
+            }
           ></Route>
         </Routes>
       </Router>
