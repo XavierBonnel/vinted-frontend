@@ -2,7 +2,17 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 
-function Header({ logged, setLogged, token, setToken }) {
+import Research from "./Research";
+
+function Header({
+  logged,
+  setLogged,
+  token,
+  setToken,
+  handleSearch,
+  title,
+  setTitle,
+}) {
   const disconnect = (event) => {
     Cookies.remove("token");
     setToken(null);
@@ -10,11 +20,17 @@ function Header({ logged, setLogged, token, setToken }) {
 
   return (
     <div className="header">
+      {/* Header Left */}
+
       <div className="header-left">
         <Link to="/">
           <img src="/logo-vinted.png" alt="logo vinted" />
         </Link>
+        <Research handleSearch={handleSearch} />
       </div>
+
+      {/* Header right */}
+
       <div className="header-right">
         {token ? (
           <button onClick={disconnect}>Se déconnecter</button>

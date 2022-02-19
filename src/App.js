@@ -9,10 +9,18 @@ import Header from "./components/Header";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Publish from "./pages/Publish";
+import ResearchOffers from "./pages/ResearchOffers";
 
 function App() {
   const [logged, setLogged] = useState(false);
   const [token, setToken] = useState(Cookies.get("token") || null);
+  const [title, setTitle] = useState("");
+
+  const handleSearch = (event) => {
+    const inputTitle = event.target.value;
+    // Fonction qui va chercher dans les keywords la présence de ce qu'il y a dans l'input
+    setTitle(inputTitle);
+  };
 
   return (
     <div className="App">
@@ -22,6 +30,9 @@ function App() {
           logged={logged}
           token={token}
           setToken={setToken}
+          handleSearch={handleSearch}
+          title={title}
+          setTitle={setTitle}
         />
 
         <Routes>
@@ -30,6 +41,10 @@ function App() {
             element={<Home logged={logged} setLogged={setLogged} />}
           ></Route>
           <Route path="/offer/:id" element={<Offer />}></Route>
+          <Route
+            path="/research"
+            element={<ResearchOffers title={title} />}
+          ></Route>
           <Route
             path="/signup"
             element={
