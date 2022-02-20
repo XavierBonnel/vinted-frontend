@@ -21,7 +21,7 @@ function App() {
   const [token, setToken] = useState(Cookies.get("token") || null);
   const [title, setTitle] = useState("");
   const [sort, setSort] = useState("");
-  const [priceLimit, setPriceLimit] = useState(0);
+  const [priceLimit, setPriceLimit] = useState(2000);
   // const navigate = useNavigate();
 
   const handleTitleChange = (event) => {

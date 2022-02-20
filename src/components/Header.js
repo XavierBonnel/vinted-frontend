@@ -15,6 +15,7 @@ function Header({
   handleSort,
   handlePriceLimit,
   priceLimit,
+  defaultValuePriceLimit,
 }) {
   const disconnect = (event) => {
     Cookies.remove("token");
@@ -26,7 +27,7 @@ function Header({
       {/* Header Left */}
 
       <div className="header-left">
-        <Link to="/">
+        <Link className="bloc-image" to="/">
           <img src="/logo-vinted.png" alt="logo vinted" />
         </Link>
         <Research
