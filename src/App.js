@@ -21,6 +21,7 @@ function App() {
   const [token, setToken] = useState(Cookies.get("token") || null);
   const [title, setTitle] = useState("");
   const [sort, setSort] = useState("");
+  const [priceLimit, setPriceLimit] = useState(0);
   // const navigate = useNavigate();
 
   const handleTitleChange = (event) => {
@@ -40,6 +41,11 @@ function App() {
     // navigate("/research");
   };
 
+  const handlePriceLimit = (event) => {
+    const inputPriceMax = event.target.value;
+    setPriceLimit(Number(inputPriceMax));
+  };
+
   return (
     <div className="App">
       <Router>
@@ -52,6 +58,9 @@ function App() {
           handleSort={handleSort}
           title={title}
           setTitle={setTitle}
+          handlePriceLimit={handlePriceLimit}
+          priceLimit={priceLimit}
+          setPriceLimit={setPriceLimit}
         />
 
         <Routes>
@@ -65,6 +74,9 @@ function App() {
                 title={title}
                 setTitle={setTitle}
                 sort={sort}
+                handlePriceLimit={handlePriceLimit}
+                priceLimit={priceLimit}
+                setPriceLimit={setPriceLimit}
               />
             }
           ></Route>

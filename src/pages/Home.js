@@ -3,14 +3,14 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-function Home({ logged, setLogged, title, sort }) {
+function Home({ logged, setLogged, title, sort, priceLimit }) {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchdata = async () => {
       const response = await axios.get(
-        `https://my--vinted-backend.herokuapp.com/offers?title=${title}&sort=${sort}`
+        `https://my--vinted-backend.herokuapp.com/offers?title=${title}&sort=${sort}&priceMin=0&priceMax=${priceLimit}`
       );
 
       setData(response.data);
@@ -18,11 +18,11 @@ function Home({ logged, setLogged, title, sort }) {
     };
 
     fetchdata();
-  }, [title, sort]);
+  }, [title, sort, priceLimit]);
 
   return (
     <div>
-      {title || sort ? (
+      {title ? (
         ""
       ) : (
         <div className="hero-banner">

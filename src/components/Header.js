@@ -13,6 +13,8 @@ function Header({
   title,
   setTitle,
   handleSort,
+  handlePriceLimit,
+  priceLimit,
 }) {
   const disconnect = (event) => {
     Cookies.remove("token");
@@ -30,6 +32,8 @@ function Header({
         <Research
           handleTitleChange={handleTitleChange}
           handleSort={handleSort}
+          handlePriceLimit={handlePriceLimit}
+          priceLimit={priceLimit}
         />
       </div>
 

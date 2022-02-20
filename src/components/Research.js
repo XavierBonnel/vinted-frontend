@@ -1,6 +1,11 @@
 import React from "react";
 
-function Research({ handleTitleChange, handleSort }) {
+function Research({
+  handleTitleChange,
+  handleSort,
+  handlePriceLimit,
+  priceLimit,
+}) {
   //   const { title } = useParams();
   //   const { skip } = useParams();
   //   const { sort } = useParams();
@@ -16,7 +21,8 @@ function Research({ handleTitleChange, handleSort }) {
           <input type="checkbox" onClick={handleSort} />
           <span class="slider round"></span>
         </label>
-        <input type="range" />
+        <input type="range" min="0" max="2000" onChange={handlePriceLimit} />
+        <span>{priceLimit}</span>
       </div>
     </div>
   );
