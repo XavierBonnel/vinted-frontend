@@ -3,27 +3,33 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-function Home({ logged, setLogged }) {
+function Home({ logged, setLogged, title }) {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchdata = async () => {
       const response = await axios.get(
-        "https://my--vinted-backend.herokuapp.com/offers"
+        `https://my--vinted-backend.herokuapp.com/offers?title=${title}`
       );
+
       setData(response.data);
       setIsLoading(false);
     };
 
     fetchdata();
-  }, []);
+  }, [title]);
 
   return (
     <div>
-      <div className="hero-banner">
-        <img src="/hero-vinted.jpg" alt="hero-banner-vinted" />
-      </div>
+      {title ? (
+        ""
+      ) : (
+        <div className="hero-banner">
+          <img src="/hero-vinted.jpg" alt="hero-banner-vinted" />
+        </div>
+      )}
+
       {isLoading ? (
         <p>Loading...</p>
       ) : (
