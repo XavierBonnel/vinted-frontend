@@ -20,12 +20,23 @@ function App() {
   const [logged, setLogged] = useState(false);
   const [token, setToken] = useState(Cookies.get("token") || null);
   const [title, setTitle] = useState("");
+  const [sort, setSort] = useState("");
   // const navigate = useNavigate();
 
-  const handleSearch = (event) => {
+  const handleTitleChange = (event) => {
     const inputTitle = event.target.value;
     // Fonction qui va chercher dans les keywords la présence de ce qu'il y a dans l'input
     setTitle(inputTitle);
+    // navigate("/research");
+  };
+
+  const handleSort = (event) => {
+    // Fonction qui va chercher dans les keywords la présence de ce qu'il y a dans l'input
+    if (sort === "price-desc") {
+      setSort("price-asc");
+    } else {
+      setSort("price-desc");
+    }
     // navigate("/research");
   };
 
@@ -37,7 +48,8 @@ function App() {
           logged={logged}
           token={token}
           setToken={setToken}
-          handleSearch={handleSearch}
+          handleTitleChange={handleTitleChange}
+          handleSort={handleSort}
           title={title}
           setTitle={setTitle}
         />
@@ -49,9 +61,10 @@ function App() {
               <Home
                 logged={logged}
                 setLogged={setLogged}
-                handleSearch={handleSearch}
+                handleTitleChange={handleTitleChange}
                 title={title}
                 setTitle={setTitle}
+                sort={sort}
               />
             }
           ></Route>

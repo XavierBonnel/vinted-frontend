@@ -9,9 +9,10 @@ function Header({
   setLogged,
   token,
   setToken,
-  handleSearch,
+  handleTitleChange,
   title,
   setTitle,
+  handleSort,
 }) {
   const disconnect = (event) => {
     Cookies.remove("token");
@@ -26,7 +27,10 @@ function Header({
         <Link to="/">
           <img src="/logo-vinted.png" alt="logo vinted" />
         </Link>
-        <Research handleSearch={handleSearch} />
+        <Research
+          handleTitleChange={handleTitleChange}
+          handleSort={handleSort}
+        />
       </div>
 
       {/* Header right */}
