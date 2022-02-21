@@ -8,7 +8,7 @@ function Research({
 }) {
   return (
     <div className="research">
-      <input onChange={handleTitleChange} />
+      <input placeholder="Que recherchez vous ?" onChange={handleTitleChange} />
       <div className="switch-range">
         <label class="switch">
           <input type="checkbox" onClick={handleSort} />
