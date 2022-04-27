@@ -15,6 +15,7 @@ import Header from "./components/Header";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Publish from "./pages/Publish";
+import LoadingSpinner from "./components/LoadingSpinner";
 
 function App() {
   const [logged, setLogged] = useState(false);
@@ -43,7 +44,11 @@ function App() {
 
   const handlePriceLimit = (event) => {
     const inputPriceMax = event.target.value;
-    setPriceLimit(Number(inputPriceMax));
+    if (inputPriceMax === "") {
+      setPriceLimit(Number(3000000));
+    } else {
+      setPriceLimit(Number(inputPriceMax));
+    }
   };
 
   return (
@@ -61,6 +66,7 @@ function App() {
           handlePriceLimit={handlePriceLimit}
           priceLimit={priceLimit}
           setPriceLimit={setPriceLimit}
+          setSort={setSort}
         />
 
         <Routes>

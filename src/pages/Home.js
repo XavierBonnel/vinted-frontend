@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+import LoadingSpinner from "../components/LoadingSpinner";
+
 function Home({ logged, setLogged, title, sort, priceLimit }) {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -31,7 +33,7 @@ function Home({ logged, setLogged, title, sort, priceLimit }) {
       )}
 
       {isLoading ? (
-        <p>Loading...</p>
+        <LoadingSpinner />
       ) : (
         <div className="around-list">
           <div className="offers-list">

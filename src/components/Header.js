@@ -16,6 +16,7 @@ function Header({
   handlePriceLimit,
   priceLimit,
   defaultValuePriceLimit,
+  setSort,
 }) {
   const disconnect = (event) => {
     Cookies.remove("token");
@@ -35,6 +36,7 @@ function Header({
           handleSort={handleSort}
           handlePriceLimit={handlePriceLimit}
           priceLimit={priceLimit}
+          setSort={setSort}
         />
       </div>
 
