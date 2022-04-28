@@ -38,9 +38,8 @@ function Home({ logged, setLogged, title, sort, priceLimit }) {
         <div className="around-list">
           <div className="offers-list">
             {data.map((offer, index) => {
-              console.log(offer);
               return (
-                <div className="offer-bloc">
+                <div className="offer-bloc" key={index}>
                   <Link to={"/offer/" + offer._id}>
                     <div className="offer-card" key={index}>
                       <div className="avatar-and-username">

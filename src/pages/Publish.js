@@ -18,6 +18,7 @@ function Publish({ token }) {
   return (
     <div>
       <form
+        className="publish"
         onSubmit={async (event) => {
           event.preventDefault();
 
@@ -60,70 +61,73 @@ function Publish({ token }) {
             setImage(event.target.files[0]);
           }}
         />
-        <p>Titre</p>
-        <input
-          type="text"
-          onChange={(event) => {
-            setName(event.target.value);
-          }}
-          value={name}
-        />
-        <p>Décris ton article</p>
-        <input
-          type="text"
-          onChange={(event) => {
-            setDescription(event.target.value);
-          }}
-          value={description}
-        ></input>
-        <p>Taille</p>
-        <input
-          type="text"
-          onChange={(event) => {
-            setSize(event.target.value);
-          }}
-          value={size}
-        />
-        <p>Couleur</p>
-        <input
-          type="text"
-          onChange={(event) => {
-            setColor(event.target.value);
-          }}
-          value={color}
-        />
-        <p>Etat</p>
-        <input
-          type="text"
-          onChange={(event) => {
-            setCondition(event.target.value);
-          }}
-          value={condition}
-        />
-        <p>Marque</p>
-        <input
-          type="text"
-          onChange={(event) => {
-            setBrand(event.target.value);
-          }}
-          value={brand}
-        />
-        <p>Lieu</p>
-        <input
-          type="text"
-          onChange={(event) => {
-            setCity(event.target.value);
-          }}
-          value={city}
-        />
-        <p>prix</p>
-        <input
-          type="text"
-          onChange={(event) => {
-            setPrice(event.target.value);
-          }}
-          value={price}
-        />
+        <div className="titleDescription">
+          <p>Titre</p>
+          <input
+            type="text"
+            onChange={(event) => {
+              setName(event.target.value);
+            }}
+            value={name}
+          />
+          <p>Décris ton article</p>
+          <textarea
+            onChange={(event) => {
+              setDescription(event.target.value);
+            }}
+            value={description}
+          ></textarea>
+        </div>
+        <div className="detailsPublish">
+          <p>Taille</p>
+          <input
+            type="text"
+            onChange={(event) => {
+              setSize(event.target.value);
+            }}
+            value={size}
+          />
+          <p>Couleur</p>
+          <input
+            type="text"
+            onChange={(event) => {
+              setColor(event.target.value);
+            }}
+            value={color}
+          />
+          <p>Etat</p>
+          <input
+            type="text"
+            onChange={(event) => {
+              setCondition(event.target.value);
+            }}
+            value={condition}
+          />
+          <p>Marque</p>
+          <input
+            type="text"
+            onChange={(event) => {
+              setBrand(event.target.value);
+            }}
+            value={brand}
+          />
+          <p>Lieu</p>
+          <input
+            type="text"
+            onChange={(event) => {
+              setCity(event.target.value);
+            }}
+            value={city}
+          />
+          <p>prix</p>
+          <input
+            type="text"
+            onChange={(event) => {
+              setPrice(event.target.value);
+            }}
+            value={price}
+          />
+        </div>
         <input type="radio" />
         <label>Je suis intéressé par les échanges</label>
         <button type="submit">Ajouter</button>

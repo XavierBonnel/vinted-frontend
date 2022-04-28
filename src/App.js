@@ -22,6 +22,8 @@ function App() {
   const [token, setToken] = useState(Cookies.get("token") || null);
   const [title, setTitle] = useState("");
   const [sort, setSort] = useState("");
+  const [showSearch, setShowSearch] = useState(true);
+
   const [priceLimit, setPriceLimit] = useState(2000);
   // const navigate = useNavigate();
 
@@ -55,6 +57,8 @@ function App() {
     <div className="App">
       <Router>
         <Header
+          showSearch={showSearch}
+          setShowSearch={setShowSearch}
           setLogged={setLogged}
           logged={logged}
           token={token}
@@ -96,6 +100,8 @@ function App() {
                 logged={logged}
                 token={token}
                 setToken={setToken}
+                showSearch={showSearch}
+                setShowSearch={setShowSearch}
               />
             }
           ></Route>
@@ -107,6 +113,8 @@ function App() {
                 logged={logged}
                 token={token}
                 setToken={setToken}
+                showSearch={showSearch}
+                setShowSearch={setShowSearch}
               />
             }
           ></Route>

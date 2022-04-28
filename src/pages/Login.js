@@ -3,7 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-function Login({ logged, setLogged, setToken, token }) {
+function Login({
+  logged,
+  setLogged,
+  setToken,
+  token,
+  setShowSearch,
+  showSearch,
+}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [data, setData] = useState();
@@ -30,11 +37,11 @@ function Login({ logged, setLogged, setToken, token }) {
           password: password,
         }
       );
-      console.log(response.data);
       setData(response.data);
       const token = response.data.token;
       Cookies.set("token", token, { expires: 7 });
       setToken(token);
+      setShowSearch(true);
       navigate("/");
     } catch (error) {
       console.log(error.response);
@@ -42,7 +49,7 @@ function Login({ logged, setLogged, setToken, token }) {
     //ne pas oublier try catch pour chaque requete axios
   };
   return (
-    <div className="login-bloc">
+    <form className="login-bloc">
       <h1>Se connecter</h1>
       <input
         type="email"
@@ -58,7 +65,7 @@ function Login({ logged, setLogged, setToken, token }) {
       />
       <button onClick={handleSubmit}>se connecter</button>
       <Link to="/signup">pas encore de compte ?</Link>
-    </div>
+    </form>
   );
 }
 

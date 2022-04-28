@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+import LoadingSpinner from "../components/LoadingSpinner";
+
 function Offer() {
   const { id } = useParams();
   const [data, setData] = useState();
@@ -28,7 +30,6 @@ function Offer() {
 
   const research = () => {
     for (let i = 0; i < seller.length; i++) {
-      console.log("dans for");
       if (seller[i].owner._id.includes(data.owner)) {
         const owner = [
           seller[i].owner.account.username,
@@ -47,7 +48,7 @@ function Offer() {
   };
 
   return isLoading ? (
-    <p>Loading...</p>
+    <LoadingSpinner />
   ) : (
     <div className="individual-offer">
       <div className="offer-image">
@@ -60,7 +61,7 @@ function Offer() {
           {data.product_details.map((elem, index) => {
             const keys = Object.keys(elem);
             return (
-              <div className="details-list">
+              <div className="details-list" key={index}>
                 <div key={index} className="detail-titles-individual">
                   {keys[0]}
                 </div>

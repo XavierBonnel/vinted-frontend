@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
 
 import Research from "./Research";
@@ -17,6 +17,8 @@ function Header({
   priceLimit,
   defaultValuePriceLimit,
   setSort,
+  setShowSearch,
+  showSearch,
 }) {
   const disconnect = (event) => {
     Cookies.remove("token");
@@ -28,16 +30,24 @@ function Header({
       {/* Header Left */}
 
       <div className="header-left">
-        <Link className="bloc-image" to="/">
+        <Link
+          className="bloc-image"
+          to="/"
+          onClick={(e) => {
+            setShowSearch(true);
+          }}
+        >
           <img src="/logo-vinted.png" alt="logo vinted" />
         </Link>
-        <Research
-          handleTitleChange={handleTitleChange}
-          handleSort={handleSort}
-          handlePriceLimit={handlePriceLimit}
-          priceLimit={priceLimit}
-          setSort={setSort}
-        />
+        {showSearch && (
+          <Research
+            handleTitleChange={handleTitleChange}
+            handleSort={handleSort}
+            handlePriceLimit={handlePriceLimit}
+            priceLimit={priceLimit}
+            setSort={setSort}
+          />
+        )}
       </div>
 
       {/* Header right */}
@@ -48,17 +58,38 @@ function Header({
         ) : (
           <>
             <button>
-              <Link to="/signup">s'inscrire</Link>
+              <Link
+                to="/signup"
+                onClick={(e) => {
+                  setShowSearch(false);
+                }}
+              >
+                s'inscrire
+              </Link>
             </button>
             <button>
-              <Link to="/login">se connecter</Link>
+              <Link
+                to="/login"
+                onClick={(e) => {
+                  setShowSearch(false);
+                }}
+              >
+                se connecter
+              </Link>
             </button>
           </>
         )}
 
         <button>
           {token ? (
-            <Link to="/publish">vends tes articles</Link>
+            <Link
+              to="/publish"
+              onClick={(e) => {
+                setShowSearch(false);
+              }}
+            >
+              vends tes articles
+            </Link>
           ) : (
             <Link to="/login">vends tes articles</Link>
           )}
