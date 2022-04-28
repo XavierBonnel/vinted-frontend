@@ -5,17 +5,12 @@ import Cookies from "js-cookie";
 import Research from "./Research";
 
 function Header({
-  logged,
-  setLogged,
   token,
   setToken,
   handleTitleChange,
-  title,
-  setTitle,
   handleSort,
   handlePriceLimit,
   priceLimit,
-  defaultValuePriceLimit,
   setSort,
   setShowSearch,
   showSearch,

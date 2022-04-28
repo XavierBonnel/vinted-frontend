@@ -140,11 +140,15 @@
   }
 }
 
+.Home {
+  display: flex;
+}
+
 .hero-banner {
   display: flex;
   background-color: gray;
   height: 359px;
-  width: 100vw;
+  // width: 100vw;
   img {
     display: flex;
     object-fit: cover;
@@ -154,15 +158,18 @@
 }
 
 .around-list {
-  display: grid;
-  align-content: space-evenly;
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
   justify-content: center;
-  margin-top: 40px;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .offers-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 
   a {
     text-decoration: none;
@@ -175,7 +182,6 @@
 
   .offer-card {
     display: flex;
-    // background-color: pink;
     width: 240px;
     height: 465px;
     flex-direction: column;
@@ -360,17 +366,22 @@
 
   .detailsPublish {
     margin-top: 16px;
-    display: flex;
-    flex-wrap: wrap;
-    width: 500px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    // flex-wrap: wrap;
+    // width: 500px;
 
     p {
-      margin-right: 8px;
+      margin-bottom: 8px;
     }
 
     input {
       margin-right: 16px;
     }
+  }
+
+  .interestedForExchange {
+    margin-top: 16px;
   }
 
   button {
@@ -383,6 +394,6 @@
     justify-content: center;
     align-items: center;
     border-radius: 2px;
-    margin: 16px 0 16px 0;
+    margin: 16px 0 92px 0;
   }
 }

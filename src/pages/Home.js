@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import LoadingSpinner from "../components/LoadingSpinner";
 
-function Home({ logged, setLogged, title, sort, priceLimit }) {
+function Home({ title, sort, priceLimit }) {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 

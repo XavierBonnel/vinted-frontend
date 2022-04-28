@@ -79,57 +79,71 @@ function Publish({ token }) {
           ></textarea>
         </div>
         <div className="detailsPublish">
-          <p>Taille</p>
-          <input
-            type="text"
-            onChange={(event) => {
-              setSize(event.target.value);
-            }}
-            value={size}
-          />
-          <p>Couleur</p>
-          <input
-            type="text"
-            onChange={(event) => {
-              setColor(event.target.value);
-            }}
-            value={color}
-          />
-          <p>Etat</p>
-          <input
-            type="text"
-            onChange={(event) => {
-              setCondition(event.target.value);
-            }}
-            value={condition}
-          />
-          <p>Marque</p>
-          <input
-            type="text"
-            onChange={(event) => {
-              setBrand(event.target.value);
-            }}
-            value={brand}
-          />
-          <p>Lieu</p>
-          <input
-            type="text"
-            onChange={(event) => {
-              setCity(event.target.value);
-            }}
-            value={city}
-          />
-          <p>prix</p>
-          <input
-            type="text"
-            onChange={(event) => {
-              setPrice(event.target.value);
-            }}
-            value={price}
-          />
+          <div>
+            <p>Taille</p>
+            <input
+              type="text"
+              onChange={(event) => {
+                setSize(event.target.value);
+              }}
+              value={size}
+            />
+          </div>
+          <div>
+            <p>Couleur</p>
+            <input
+              type="text"
+              onChange={(event) => {
+                setColor(event.target.value);
+              }}
+              value={color}
+            />
+          </div>
+          <div>
+            <p>Etat</p>
+            <input
+              type="text"
+              onChange={(event) => {
+                setCondition(event.target.value);
+              }}
+              value={condition}
+            />
+          </div>
+          <div>
+            <p>Marque</p>
+            <input
+              type="text"
+              onChange={(event) => {
+                setBrand(event.target.value);
+              }}
+              value={brand}
+            />
+          </div>
+          <div>
+            <p>Lieu</p>
+            <input
+              type="text"
+              onChange={(event) => {
+                setCity(event.target.value);
+              }}
+              value={city}
+            />
+          </div>
+          <div>
+            <p>prix</p>
+            <input
+              type="text"
+              onChange={(event) => {
+                setPrice(event.target.value);
+              }}
+              value={price}
+            />
+          </div>
         </div>
-        <input type="radio" />
-        <label>Je suis intéressé par les échanges</label>
+        <div className="interestedForExchange">
+          <input type="radio" />
+          <label>Je suis intéressé par les échanges</label>
+        </div>
         <button type="submit">Ajouter</button>
       </form>
     </div>
