@@ -24,7 +24,7 @@ function App() {
   const [sort, setSort] = useState("");
   const [showSearch, setShowSearch] = useState(true);
 
-  const [priceLimit, setPriceLimit] = useState(2000);
+  const [priceLimit, setPriceLimit] = useState(3000000);
   // const navigate = useNavigate();
 
   const handleTitleChange = (event) => {
