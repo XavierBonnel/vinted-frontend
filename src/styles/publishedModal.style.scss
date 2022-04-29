@@ -1,0 +1,130 @@
+.darkBG {
+  background-color: rgba(0, 0, 0, 0.459);
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal3 {
+  // display: flex;
+  // flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  padding: 32px;
+  // height: 650px;
+  background: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  z-index: 10;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+
+  .closeBtn {
+    cursor: pointer;
+    font-weight: 500;
+    padding: 4px 8px;
+    border: none;
+    font-size: 18px;
+    color: #000000;
+    transition: all 0.25s ease;
+    position: absolute;
+    right: 0;
+    top: 0;
+    // align-self: flex-end;
+  }
+
+  h1 {
+    margin-bottom: 56px;
+  }
+
+  .options {
+    display: flex;
+    justify-content: space-between;
+    height: 26px;
+    .priceDetailsModal {
+      display: flex;
+    }
+  }
+
+  .modalDetailsTotal {
+    display: flex;
+    // margin-top: 16px;
+    justify-content: space-between;
+  }
+
+  .periodeLocDetailsModal {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .leftPart {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 70%;
+    img {
+      object-fit: contain;
+      width: 100%;
+    }
+    .carDetails {
+      display: flex;
+      span {
+        margin-right: 16px;
+      }
+    }
+  }
+
+  .rightPart {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    justify-content: center;
+    padding-right: 150px; // .modalActions {
+    //   position: absolute;
+    //   bottom: 2px;
+    //   margin-bottom: 10px;
+    //   width: 100%;
+    //   color: white;
+    // }
+    .containerTotalSelectBtn {
+      display: flex;
+      flex-direction: column;
+      justify-content: baseline;
+      align-items: flex-end;
+    }
+
+    .actionsContainer {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      button {
+        background-color: #ff5f00;
+        color: white;
+        z-index: 300;
+      }
+    }
+
+    .cancelBtn {
+      margin-top: 10px;
+      cursor: pointer;
+      font-weight: 500;
+      padding: 11px 28px;
+      font-size: 0.8rem;
+      border: none;
+      color: #2c3e50;
+      background: #ff5f00;
+      transition: all 0.25s ease;
+    }
+  }
+}

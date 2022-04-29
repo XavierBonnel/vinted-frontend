@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import PublishedModal from "../components/PublishedModal";
 
 function Publish({ token }) {
   const [image, setImage] = useState({});
@@ -12,11 +13,21 @@ function Publish({ token }) {
   const [condition, setCondition] = useState("");
   const [color, setColor] = useState("");
   const [city, setCity] = useState("");
+  const [publishedModalOpen, setPublishedModalOpen] = useState(false);
+
+  const navigate = useNavigate();
 
   const userToken = token;
 
   return (
     <div>
+      {publishedModalOpen && (
+        <PublishedModal
+          setPublishedModalOpen={setPublishedModalOpen}
+          publishedModalOpen={publishedModalOpen}
+        />
+      )}
+
       <form
         className="publish"
         onSubmit={async (event) => {
@@ -43,8 +54,7 @@ function Publish({ token }) {
                 },
               }
             );
-
-            alert(JSON.stringify(response.data));
+            setPublishedModalOpen(true);
           } catch (err) {
             if (err.response.status === 500) {
               console.error("An error occurred");
