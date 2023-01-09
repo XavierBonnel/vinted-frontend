@@ -29,7 +29,7 @@ function Signup({ setToken, token }) {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://my--vinted-backend.herokuapp.com/user/signup",
+        "https://vinted-backend.onrender.com/user/signup",
         {
           username: username,
           email: email,

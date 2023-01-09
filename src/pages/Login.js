@@ -31,7 +31,7 @@ function Login({
     //try catch
     try {
       const response = await axios.post(
-        "https://my--vinted-backend.herokuapp.com/user/login",
+        "https://vinted-backend.onrender.com/user/login",
         {
           email: email,
           password: password,

@@ -12,7 +12,7 @@ function Home({ title, sort, priceLimit }) {
   useEffect(() => {
     const fetchdata = async () => {
       const response = await axios.get(
-        `https://my--vinted-backend.herokuapp.com/offers?title=${title}&sort=${sort}&priceMin=0&priceMax=${priceLimit}`
+        `https://vinted-backend.onrender.com/offers?title=${title}&sort=${sort}&priceMin=0&priceMax=${priceLimit}`
       );
 
       setData(response.data);

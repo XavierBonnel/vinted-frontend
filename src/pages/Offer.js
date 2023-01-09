@@ -14,11 +14,11 @@ function Offer() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `https://my--vinted-backend.herokuapp.com/offer?id=${id}`
+        `https://vinted-backend.onrender.com/offer?id=${id}`
       );
 
       const sellerList = await axios.get(
-        "https://my--vinted-backend.herokuapp.com/offers"
+        "https://vinted-backend.onrender.com/offers"
       );
 
       setSeller(sellerList.data);
